@@ -1,5 +1,5 @@
 {
-  "name": "ens-subgraph",
+  "name": "nom-subgraph",
   "version": "1.0.2",
   "repository": "https://github.com/ensdomains/ens-subgraph",
   "license": "MIT",
@@ -14,7 +14,7 @@
     "docker:deploy-local": "graph deploy graphprotocol/ens --debug --ipfs http://ens-app_ipfs_1:5001 --node http://ens-app_graph-node_1:8020/ --version-label 0.0.1",
     "docker:remove-local": "graph remove graphprotocol/ens --node http://ens-app_graph-node_1:8020",
     "build": "graph build",
-    "deploy": "graph deploy ensdomains/ens --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy": "export $(cat .env) && graph deploy nomspace/nomspacetest --access-token \"$GRAPH_ACCESS_TOKEN\" --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ --debug",
     "watch-local": "graph deploy graphprotocol/ens --watch --debug --node http://127.0.0.1:8020/ --ipfs http://localhost:5001"
   },
   "devDependencies": {
